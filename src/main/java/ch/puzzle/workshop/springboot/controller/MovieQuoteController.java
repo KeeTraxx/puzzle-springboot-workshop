@@ -9,6 +9,7 @@ import ch.puzzle.workshop.springboot.util.Piratetifier;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,6 +49,17 @@ public class MovieQuoteController {
     @RequestMapping("/quote")
     public Iterable<MovieQuote> getQuotes() {
         return repository.findAll();
+    }
+
+    @RequestMapping("/moto")
+    public MovieQuote getMoto(String name) {
+        final MovieQuote[] movieQuote = {null};
+        personRepository.findAll().forEach(p -> {
+            if (p.getName().contains(name)) {
+                movieQuote[0] =  repository.findOne(p.getId());return;}
+        });
+
+        return movieQuote[0];
     }
 
     @RequestMapping("/person")
