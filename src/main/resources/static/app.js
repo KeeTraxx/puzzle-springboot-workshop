@@ -41,7 +41,6 @@ $(function () {
         e.preventDefault();
     });
     $( "#send" ).click(sendRequest);
-    $( "#sendmoto" ).click(function() { sendRequestMoto($("#name").val); });
-
+    $( "#sendmoto" ).click(function() { sendRequestMoto($("#name").val()); });
     $( "#sendpirat" ).click(sendRequestPirate);
 });
