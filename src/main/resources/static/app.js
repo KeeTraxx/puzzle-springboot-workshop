@@ -42,6 +42,5 @@ $(function () {
     });
     $( "#send" ).click(sendRequest);
     $( "#sendmoto" ).click(function() { sendRequestMoto($("#name").val); });
-
     $( "#sendpirat" ).click(sendRequestPirate);
 });
